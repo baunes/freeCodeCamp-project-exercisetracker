@@ -10,4 +10,11 @@ router.post('/api/exercise/add', (req, res) => {
     .catch((error) => res.json(error))
 })
 
+router.get('/api/exercise/log', (req, res) => {
+  ACTIONS.getLog
+    .do(req.query.userId)
+    .then((response) => res.json(response))
+    .catch((error) => res.json(error))
+})
+
 module.exports = router
