@@ -1,5 +1,6 @@
 const Repository = require('../repository')
 const UsersRepository = require('../../users/repository')
+const { formatDateOutput } = require('../../utils/dates')
 
 function createExercise(dto) {
   return {
@@ -18,10 +19,6 @@ function exerciseHasErrors(dto) {
   return false
 }
 
-function formatDate(dateStr) {
-  return new Date(dateStr).toDateString()
-}
-
 class AddExercise {
   static async do(dto) {
     const error = exerciseHasErrors(dto)
@@ -35,7 +32,7 @@ class AddExercise {
         username: user.username,
         description: exercise.description,
         duration: exercise.duration,
-        date: formatDate(exercise.date),
+        date: formatDateOutput(exercise.date),
       }
     } catch (err) {
       console.log('Error saving exercise', err)

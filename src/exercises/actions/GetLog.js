@@ -1,9 +1,6 @@
 const Repository = require('../repository')
 const UsersRepository = require('../../users/repository')
-
-function formatDate(dateStr) {
-  return new Date(dateStr).toDateString()
-}
+const { formatDateOutput } = require('../../utils/dates')
 
 class GetLog {
   static async do(userId) {
@@ -17,7 +14,7 @@ class GetLog {
         log: exercises.map((exercise) => ({
           description: exercise.description,
           duration: exercise.duration,
-          date: formatDate(exercise.date),
+          date: formatDateOutput(exercise.date),
         })),
         count: exercises.length,
       }
