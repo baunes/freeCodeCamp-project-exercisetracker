@@ -1,8 +1,10 @@
 const express = require('express')
-const ShortUrlRouter = require('./users/http/routes')
+const UsersRouter = require('./users/http/routes')
+const ExercisesRouter = require('./exercises/http/routes')
 
 const router = express.Router()
 
-router.use(ShortUrlRouter)
+router.use(UsersRouter)
+router.use(ExercisesRouter)
 
 module.exports = router

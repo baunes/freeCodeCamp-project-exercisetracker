@@ -8,6 +8,10 @@ class UserRepository {
   static findAll(projection = {}) {
     return UserModel.find({}, projection).sort({ username: 1 })
   }
+
+  static findById(id) {
+    return UserModel.findById(id)
+  }
 }
 
 module.exports = UserRepository
