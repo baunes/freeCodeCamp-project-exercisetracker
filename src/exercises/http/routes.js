@@ -12,7 +12,7 @@ router.post('/api/exercise/add', (req, res) => {
 
 router.get('/api/exercise/log', (req, res) => {
   ACTIONS.getLog
-    .do(req.query.userId)
+    .do(req.query.userId, req.query.from, req.query.to, req.query.limit)
     .then((response) => res.json(response))
     .catch((error) => res.json(error))
 })

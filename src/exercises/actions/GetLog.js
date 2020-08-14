@@ -3,10 +3,10 @@ const UsersRepository = require('../../users/repository')
 const { formatDateOutput } = require('../../utils/dates')
 
 class GetLog {
-  static async do(userId) {
+  static async do(userId, from, to, limit) {
     try {
       const user = await UsersRepository.findById(userId)
-      const exercises = await Repository.findAllByUser(userId)
+      const exercises = await Repository.findAllByUser(userId, from, to, limit)
 
       return {
         _id: user._id,
