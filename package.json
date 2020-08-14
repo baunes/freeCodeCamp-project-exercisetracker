@@ -4,6 +4,8 @@
   "description": "A REST API project, part of Free Code Camp's curriculum",
   "main": "server.js",
   "scripts": {
+    "lint-cache": "eslint --cache src/**/*.js",
+    "lint": "eslint src/**/*.js",
     "start": "node server.js"
   },
   "dependencies": {
@@ -25,5 +27,23 @@
     "node",
     "gomix",
     "express"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "7.6.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
 }
