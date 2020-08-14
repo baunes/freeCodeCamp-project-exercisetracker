@@ -47,7 +47,7 @@ app.use((err, req, res, next) => {
   res.status(errCode).type('txt').send(errMessage)
 })
 
-new Database(process.env.MONGO_URI)
+new Database(process.env.MONGO_URI, process.env.MONGO_DB)
   .connect()
   .then(() => {
     console.log('Connected to Mongo')
