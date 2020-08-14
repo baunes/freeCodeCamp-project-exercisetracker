@@ -1,7 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+
 const Database = require('./database')
+const Routes = require('./routes')
 
 const app = express()
 
@@ -17,6 +19,8 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/views/index.html`)
 })
+
+app.use(Routes)
 
 // Not found middleware
 app.use((req, res, next) => {
