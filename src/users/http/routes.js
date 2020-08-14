@@ -10,4 +10,11 @@ router.post('/api/exercise/new-user', (req, res) => {
     .catch((error) => res.json(error))
 })
 
+router.get('/api/exercise/users', (req, res) => {
+  ACTIONS.getUsers
+    .do(req.body.username)
+    .then((response) => res.json(response))
+    .catch((error) => res.json(error))
+})
+
 module.exports = router
